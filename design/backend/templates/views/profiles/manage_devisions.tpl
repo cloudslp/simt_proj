@@ -1,7 +1,6 @@
 {** devisions section **}
 
 {capture name="mainbox"}
-
     <form action="{""|fn_url}" method="post" id="devisions_form" name="devisions_form" enctype="multipart/form-data">
         <input type="hidden" name="fake" value="1" />
         {include file="common/pagination.tpl" save_current_page=true save_current_url=true div_id="pagination_contents_devisions"}
@@ -55,8 +54,6 @@
                                     {$no_hide_input=""}
                                 {/if}
 
-                                
-
                                 <td width="6%" class="left mobile-hide">
                                     <input type="checkbox" name="devision_ids[]" value="{$devision.devision_id}" class="cm-item {$no_hide_input} cm-item-status-{$devision.status|lower}" /></td>
                                 <td width="25%" class="products-list__image">
@@ -82,10 +79,10 @@
 
                                 <td width="6%" class="mobile-hide">
                                     {capture name="tools_list"}
-                                        <li>{btn type="list" text=__("edit") href="profiles.update_devision?devision_id=`$devision.devision_id`"}</li>
-                                    {if $allow_save}
-                                        <li>{btn type="list" class="cm-confirm" text=__("delete") href="profiles.delete_devision?devision_id=`$devision.devision_id`" method="POST"}</li>
-                                    {/if}
+                                            <li>{btn type="list" text=__("edit") href="profiles.update_devision?devision_id=`$devision.devision_id`"}</li>
+                                        {if $allow_save}
+                                            <li>{btn type="list" class="cm-confirm" text=__("delete") href="profiles.delete_devision?devision_id=`$devision.devision_id`" method="POST"}</li>
+                                        {/if}
                                     {/capture}
                                     <div class="hidden-tools">
                                         {dropdown content=$smarty.capture.tools_list}
@@ -93,7 +90,15 @@
                                 </td>
                                 
                                 <td width="10%" class="right" data-th="{__("status")}">
-                                    {include file="common/select_popup.tpl" id=$devision.devision_id status=$devision.status hidden=true object_id_name="devision_id" table="devisions" popup_additional_class="`$no_hide_input` dropleft"}
+                                    {include file="common/select_popup.tpl" 
+                                        id=$devision.devision_id 
+                                        status=$devision.status 
+                                        hidden=true 
+                                        object_id_name="devision_id" 
+                                        table="devisions" 
+                                        popup_additional_class="`$no_hide_input` 
+                                        dropleft"
+                                    }
                                 </td>
                             </tr>
                         {/foreach}
@@ -115,18 +120,21 @@
 
         {capture name="adv_buttons"}
             {hook name="devisions:adv_buttons"}
-            {include file="common/tools.tpl" tool_href="profiles.add_devision" prefix="top" hide_tools="true" title=__("add_devision") icon="icon-plus"}
+                {include file="common/tools.tpl" 
+                    tool_href="profiles.add_devision" 
+                    prefix="top" hide_tools="true" 
+                    title=__("add_devision") 
+                    icon="icon-plus"
+                }
             {/hook}
         {/capture}
-
     </form>
-
 {/capture}
 
 {capture name="sidebar"}
     {hook name="devisions:manage_sidebar"}
-    {include file="common/saved_search.tpl" dispatch="profiles.manage_devisions" view_type="banners"}
-    {include file="addons/banners/views/banners/components/search.tpl" dispatch="profiles.manage_devisions"}
+        {include file="common/saved_search.tpl" dispatch="profiles.manage_devisions" view_type="banners"}
+        {include file="addons/banners/views/banners/components/search.tpl" dispatch="profiles.manage_devisions"}
     {/hook}
 {/capture}
 
