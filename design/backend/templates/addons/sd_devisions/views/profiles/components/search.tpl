@@ -6,7 +6,7 @@
     <h6>{__("admin_search_title")}</h6>
 {/if}
 
-<form name="banner_search_form" action="{""|fn_url}" method="get" class="{$form_meta}">
+<form name="devision_search_form" action="{""|fn_url}" method="get" class="{$form_meta}">
 {if $smarty.request.redirect_url}
         <input type="hidden" name="redirect_url" value="{$smarty.request.redirect_url}" />
     {/if}
@@ -43,7 +43,7 @@
         </div>
     {/capture}
 
-    {include file="common/advanced_search.tpl" no_adv_link=true simple_search=$smarty.capture.simple_search dispatch=$dispatch view_type="banners"}
+    {include file="common/advanced_search.tpl" no_adv_link=true simple_search=$smarty.capture.simple_search dispatch=$dispatch view_type="devisions"}
 
 </form>
 
