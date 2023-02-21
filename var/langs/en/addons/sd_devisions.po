@@ -1,0 +1,21 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::sd_devisions"
+msgid "Sd devisions"
+msgstr "Sd devisions"
+
+msgctxt "Addons::description::sd_devisions"
+msgid "Allows you to add devisions."
+msgstr "Allows you to add devisions."
+
+msgctxt "Language::sd_devisions.devisions"
+msgid "Departments"
+msgstr "Departments"
+
+msgctxt "Language::add_manager"
+msgid "Add manager"
+msgstr "Add manager"
