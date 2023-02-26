@@ -518,6 +518,10 @@ $schema = [
                     'alt' => 'profiles.update?user_type=C',
                     'position' => 300,
                 ],
+                'devisions' => [
+                    'href' => 'profiles.manage_devisions',
+                    'position' => 400,
+                ],
                 'usergroups' => [
                     'href' => 'usergroups.manage',
                     'position' => 800,
