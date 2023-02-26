@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<addon scheme= "3.0">
+<id>sd_devisions</id>
+    <version>4.15.2</version>
+    <priority>1200</priority>
+    <position>10</position>
+    <status>active</status>
+    <has_icon>Y</has_icon>
+    <queries>
+    <item for="install">DROP TABLE IF EXISTS `?:devisions`</item>
+    <item for="install">DROP TABLE IF EXISTS `?:devision_descriptions`</item>
+    <item for="install">DROP TABLE IF EXISTS `?:devision_users`</item>
+        <item for="install">
+            CREATE TABLE `cscart_devisions` (
+            `devision_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+            `status` varchar(11) NOT NULL DEFAULT 'A',
+            `timestamp` int UNSIGNED NOT NULL DEFAULT '0',
+            `upd_timestamp` int UNSIGNED NOT NULL DEFAULT '0',
+            `manager_id` int UNSIGNED NOT NULL DEFAULT '0',
+             PRIMARY KEY (`devision_id`),
+             KEY `manager_id` (`manager_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+        </item>
+        <item for="install">
+            CREATE TABLE `cscart_devision_descriptions` (
+            `devision_id` int UNSIGNED NOT NULL DEFAULT '0',
+            `lang_code` char(2) NOT NULL DEFAULT '',
+            `devision` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+            `description` text,
+            PRIMARY KEY (`devision_id`, `lang_code`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+        </item>
+        <item for="install">
+            CREATE TABLE `cscart_devision_users` (
+            `devision_id` int UNSIGNED NOT NULL DEFAULT '0',
+            `user_id` int NOT NULL DEFAULT '0',
+            PRIMARY KEY (`devision_id`, `user_id`),
+            KEY `user_id` (`user_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:devisions`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:devision_descriptions`</item>
+        <item for="uninstall">DROP TABLE IF EXISTS `?:devision_users`</item>
+    </queries>
+    </addon>
